@@ -1,0 +1,33 @@
+img{
+    width: 150px;
+    height: 150px;
+}
+
+.userWarp{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.userList{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.user{
+    display: flex;
+    flex-direction: column;
+    /* margin-right: 10px; */
+    text-align: center;
+    text-decoration:none;
+    color: black;
+    border: 1px solid #ccc;
+    padding: 16px;
+}
+
+.name{
+    width: 150px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
