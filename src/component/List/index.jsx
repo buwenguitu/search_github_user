@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import axios from 'axios'
+// import axios from 'axios'
 import Pubsub from 'pubsub-js'
 import './index.css'
 export default class index extends Component {
@@ -8,15 +8,16 @@ export default class index extends Component {
     }
 
     // 获取用户列表
-    getUserList = (keyWords) => {
-        console.log('keyWords: ', keyWords);
-        axios.get(`https://api.github.com/search/users?q=${keyWords}`).then(
-            response => {
-                console.log('成功了', response.data)
-                this.setState({ list: response.data.items })
-            },
-            error => { console.log('失败了', error) }
-        )
+    getUserList = async (keyWords) => {
+        try {
+            let response = await fetch(`https://api.github.com/search/users?q=${keyWords}`)
+            let result = await response.json()
+            this.setState({ list: result.items })
+            console.log('result: ', result);
+        } catch (error) {
+            console.log('error: ', error);
+
+        }
     }
 
     // 组件挂载完毕
