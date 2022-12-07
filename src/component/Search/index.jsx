@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
+import Pubsub from 'pubsub-js'
 import './index.css'
 export default class index extends Component {
     search = () => {
-        // 调用父组件方法
-        this.props.getUserList(this.keyWords.value)
+        // 调用pubsub方法
+        Pubsub.publish('search', this.keyWords.value)
     }
     render() {
         return (
